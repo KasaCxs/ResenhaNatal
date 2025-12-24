@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presente de Natal para Gustavo 🎄</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --vermelho: #C82E2E;
+            --verde: #2D5A27;
+            --dourado: #D4AF37;
+            --branco: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2410 0%, #1a3317 100%);
+            color: var(--branco);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Neve realista */
+        .snow-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.9;
+            box-shadow: 0 0 8px rgba(255,255,255,0.8);
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) translateX(var(--drift));
+                opacity: 0;
+            }
+        }
+
+        /* Container principal */
+        .container {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 24px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 3px solid var(--dourado);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: clamp(2.5rem, 9vw, 4rem);
+            color: var(--dourado);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .pix-box {
+            background: linear-gradient(145deg, var(--vermelho), #a02020);
+            padding: 24px;
+            border-radius: 16px;
+            border: 4px solid var(--dourado);
+            margin: 30px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .pix-key {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            word-break: break-all;
+            margin: 16px 0;
+            border: 2px dashed var(--dourado);
+        }
+
+        .copy-btn {
+            background: linear-gradient(to bottom, var(--dourado), #b8941f);
+            color: #1E4219;
+            border: none;
+            border-radius: 50px;
+            padding: 14px 28px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.08);
+            background: linear-gradient(to bottom, #e6c158, var(--dourado));
+        }
+
+        #feedback {
+            margin-top: 16px;
+            font-size: 1rem;
+            color: var(--dourado);
+            display: none;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* Decoração simples */
+        .star {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            color: var(--dourado);
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: translateX(-50%) rotate(360deg); }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 28px 20px; }
+            .pix-key { font-size: 1.1rem; }
+            .copy-btn { font-size: 1.1rem; padding: 12px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Neve realista -->
+    <div class="snow-container" id="snow"></div>
+
+    <!-- Estrela no topo -->
+    <i class="fas fa-star star"></i>
+
+    <div class="container">
+        <h1>🎄 Presente de Natal 🎁</h1>
+        
+        <p class="message">
+            Olá! Nessa Resenha de Natal, o melhor presente que você pode dar é um PIX.<br>
+            <strong>Mínimo R$ 20,00</strong>, mas se puder dar mais ja ajuda bastante, vai ser só alegria e muita cachaça todos nós!💚
+        </p>
+
+        <div class="pix-box">
+            <h3 style="color: var(--dourado); margin-bottom: 16px; font-size: 1.5rem;">
+                👍🏼 Chave PIX Aleatória
+            </h3>
+            <div class="pix-key">dc427c95-14c5-4579-a3fd-bba1e245e506</div>
+            
+            <p style="margin: 16px 0; font-size: 1.1rem;">
+                <strong>Nome:</strong> Gustavo Gomes Barros<br>
+                (Confira se aparece esse nome ao colar a chave)
+            </p>
+            
+            <button class="copy-btn" id="copyBtn">
+                <i class="far fa-copy"></i> Copiar Chave PIX
+            </button>
+            
+            <p id="feedback"><i class="fas fa-check"></i> Chave copiada! Agora é só colar no seu app 😊</p>
+        </div>
+
+        <div class="footer">
+            <p>🎅 Obrigado de coração! Feliz Natal e um 2026 cheio de bênçãos! 🎄</p>
+        </div>
+    </div>
+
+    <script>
+        // Copiar chave
+        document.getElementById("copyBtn").addEventListener("click", () => {
+            navigator.clipboard.writeText("dc427c95-14c5-4579-a3fd-bba1e245e506");
+            const feedback = document.getElementById("feedback");
+            feedback.style.display = "block";
+            setTimeout(() => feedback.style.display = "none", 4000);
+        });
+
+        // Neve realista com variedade
+        const snow = document.getElementById("snow");
+        const count = 60; // Quantidade boa sem pesar
+
+        for (let i = 0; i < count; i++) {
+            const flake = document.createElement("div");
+            flake.classList.add("snowflake");
+
+            // Tamanho variado
+            const size = Math.random() * 8 + 4;
+            flake.style.width = flake.style.height = `${size}px`;
+
+            // Posição inicial
+            flake.style.left = `${Math.random() * 100}vw`;
+
+            // Duração e atraso variados
+            const duration = Math.random() * 10 + 10;
+            flake.style.animationDuration = `${duration}s`;
+            flake.style.animationDelay = `${Math.random() * 10}s`;
+
+            // Drift lateral (vento)
+            const drift = (Math.random() - 0.5) * 200; // -100 a +100px
+            flake.style.setProperty('--drift', `${drift}px`);
+
+            // Opacidade variada
+            flake.style.opacity = Math.random() * 0.5 + 0.5;
+
+            snow.appendChild(flake);
+        }
+    </script>
+</body>
+</html>
